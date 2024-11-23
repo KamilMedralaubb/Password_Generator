@@ -50,6 +50,29 @@ Główne cele aplikacji to prostota obsługi, bezpieczeństwo generowanych hase�
 
 ---
 
+## ⚠️ Potencjalne ryzyka
+
+1. **Nieznajomość baz danych w Pythonie**  
+   Możliwość opóźnień w implementacji funkcji przechowywania historii wygenerowanych haseł.
+
+2. **Brak doświadczenia z FastAPI**  
+   Problemy z implementacją backendu i obsługą żądań HTTP.
+
+3. **Ograniczona wiedza o Tkinter**  
+   Trudności w stworzeniu estetycznego i funkcjonalnego GUI desktopowego.
+
+4. **Problemy z integracją frontendu i backendu**  
+   Potencjalne problemy z przesyłaniem danych między interfejsem webowym a API.
+
+5. **Zarządzanie czasem**  
+   Ryzyko opóźnień z powodu konieczności nauki nowych technologii i narzędzi.
+
+6. **Testowanie aplikacji**  
+   Brak doświadczenia w testowaniu API i interfejsów może prowadzić do pominięcia błędów.
+
+**Rozwiązania:** Planowanie dodatkowego czasu na naukę, korzystanie z dokumentacji i podział projektu na mniejsze zadania. 😊
+
+
 ## 📋 Uwagi końcowe
 Aplikacja Password Generator to doskonałe narzędzie dla osób szukających prostego, ale skutecznego rozwiązania do generowania bezpiecznych haseł. Jej elastyczność i łatwość użycia sprawiają, że może być wykorzystywana zarówno przez osoby prywatne, jak i w środowisku biznesowym.
 
