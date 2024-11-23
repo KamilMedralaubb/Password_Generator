@@ -1,8 +1,6 @@
 # Password_Generator
 Projekt na IO
 
-# Password Generator
-
 ## 🔒 Opis projektu
 Password Generator to aplikacja umożliwiająca generowanie losowych, bezpiecznych haseł w zależności od preferencji użytkownika. Aplikacja została stworzona z wykorzystaniem **FastAPI** jako backendu, prostego frontendu opartego na **HTML, CSS i JavaScript**, oraz desktopowego interfejsu graficznego przy użyciu **Tkinter**.
 
