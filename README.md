@@ -76,3 +76,11 @@ Główne cele aplikacji to prostota obsługi, bezpieczeństwo generowanych hase�
 ## 📋 Uwagi końcowe
 Aplikacja Password Generator to doskonałe narzędzie dla osób szukających prostego, ale skutecznego rozwiązania do generowania bezpiecznych haseł. Jej elastyczność i łatwość użycia sprawiają, że może być wykorzystywana zarówno przez osoby prywatne, jak i w środowisku biznesowym.
 
+
+##  Diagram:
+
+![image](https://github.com/user-attachments/assets/9ba13976-a774-4d04-828c-d480935c3909)
+
+
+
+
