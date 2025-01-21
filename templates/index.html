@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>FastAPI Password Generator</title>
+  <!-- Załącz plik CSS -->
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Password Generator</h1>
+
+    <!-- Sekcja formularza -->
+    <div class="section">
+      <form id="passwordForm">
+        <label for="length">Długość hasła:</label>
+        <input type="number" id="length" name="length" value="12" min="1" max="128" required>
+
+        <label>
+          <input type="checkbox" id="use_uppercase" checked>
+          Wielkie litery (A-Z)
+        </label>
+
+        <label>
+          <input type="checkbox" id="use_digits" checked>
+          Cyfry (0-9)
+        </label>
+
+        <label>
+          <input type="checkbox" id="use_symbols" checked>
+          Znaki specjalne (!@#$%^&*...):
+        </label>
+
+        <button type="submit">Generuj hasło</button>
+      </form>
+
+      <!-- Wyświetlanie wygenerowanego hasła -->
+      <div class="generated-password" id="generatedPassword">(Tutaj pojawi się wygenerowane hasło)</div>
+    </div>
+
+    <!-- Sekcja przycisków do obsługi historii -->
+    <div class="section">
+      <div class="history-buttons">
+        <button id="getHistoryBtn">Pokaż historię</button>
+        <button id="clearHistoryBtn">Wyczyść historię</button>
+      </div>
+
+      <!-- Lista historii wygenerowanych haseł -->
+      <ul id="historyList"></ul>
+    </div>
+  </div>
+
+  <!-- Skrypt (możesz przenieść do pliku static/script.js) -->
+  <script>
+    const form = document.getElementById("passwordForm");
+    const generatedPasswordEl = document.getElementById("generatedPassword");
+    const historyList = document.getElementById("historyList");
+    const getHistoryBtn = document.getElementById("getHistoryBtn");
+    const clearHistoryBtn = document.getElementById("clearHistoryBtn");
+
+    // Obsługa wysłania formularza -> generowanie hasła
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const length = document.getElementById("length").value;
+      const useUppercase = document.getElementById("use_uppercase").checked;
+      const useDigits = document.getElementById("use_digits").checked;
+      const useSymbols = document.getElementById("use_symbols").checked;
+
+      // Przygotowanie danych do wysłania w żądaniu POST
+      const payload = {
+        length: Number(length),
+        use_uppercase: useUppercase,
+        use_digits: useDigits,
+        use_symbols: useSymbols
+      };
+
+      try {
+        const response = await fetch("/generate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+        if (!response.ok) {
+          throw new Error("Błąd podczas generowania hasła");
+        }
+        const data = await response.json();
+        generatedPasswordEl.textContent = data.generated_password;
+      } catch (error) {
+        generatedPasswordEl.textContent = "Wystąpił błąd.";
+      }
+    });
+
+    // Obsługa przycisku "Pokaż historię"
+    getHistoryBtn.addEventListener("click", async () => {
+      try {
+        const response = await fetch("/history");
+        if (!response.ok) {
+          throw new Error("Błąd podczas pobierania historii");
+        }
+        const data = await response.json();
+
+        historyList.innerHTML = "";
+        data.history.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = `Hasło: ${item.password} | ${item.created_at}`;
+          historyList.appendChild(li);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    });
+
+    // Obsługa przycisku "Wyczyść historię"
+    clearHistoryBtn.addEventListener("click", async () => {
+      try {
+        const response = await fetch("/history/clear", {
+          method: "DELETE"
+        });
+        if (!response.ok) {
+          throw new Error("Błąd podczas czyszczenia historii");
+        }
+        const data = await response.json();
+        alert(data.message);
+        historyList.innerHTML = "";
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+/* Reset lub prosty reset na początek */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ustawienia bazowe */
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8f9fa;
+  /* delikatny szary */
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Kontener na całą zawartość */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Nagłówki */
+h1,
+h2,
+h3 {
+  color: #007bff;
+  margin-bottom: 1em;
+}
+
+/* Formularze */
+form {
+  margin-bottom: 2em;
+}
+
+label {
+  display: inline-block;
+  margin: 0.5em 0 0.2em;
+  font-weight: 600;
+  color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="checkbox"],
+input[type="password"],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Checkboxy położone w linii – można zmienić */
+label>input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  margin-right: 5px;
+}
+
+/* Przycisk */
+button,
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+button:disabled,
+input[type="submit"]:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Sekcje i odseparowanie treści */
+.section {
+  margin: 2em 0;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  background: #fff;
+  padding: 1.5em;
+}
+
+/* Listy (np. historia) */
+ul {
+  list-style: disc;
+  margin-left: 2em;
+  margin-bottom: 1em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* Proste stylowanie alertów/info */
+.alert {
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 1em;
+}
+
+.alert-info {
+  background-color: #e7f3fe;
+  color: #084298;
+  border: 1px solid #b6dafe;
+}
+
+.alert-success {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border: 1px solid #badbcc;
+}
+
+.alert-error {
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+}
+
+/* Strefa wyświetlania wygenerowanego hasła */
+.generated-password {
+  font-size: 1.2rem;
+  color: #dc3545;
+  /* czerwonawy akcent */
+  font-weight: bold;
+  margin: 1em 0;
+}
+
+/* Przykładowe przyciski "Historia" i "Wyczyść historię" koło siebie */
+.history-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1em;
+}
+
+/* Opcjonalne hover na elementach listy */
+li:hover {
+  background-color: #f1f1f1;
+  cursor: default;
+}
