@@ -202,7 +202,7 @@ def copy_to_clipboard():
         generated_password = text[len(prefix):]
         root.clipboard_clear()
         root.clipboard_append(generated_password)
-        output_label.config(text=f"{text} (skopiowano!)")
+        output_label.config(text=f"{text}")
     else:
         # Brak wygenerowanego hasła do skopiowania
         output_label.config(text="Najpierw wygeneruj hasło!")
